@@ -6,6 +6,7 @@ import {
   CubicBezier,
   Path,
   Gradient,
+  Txt,
 } from "@motion-canvas/2d";
 import {
   Color,
@@ -24,9 +25,13 @@ import angularLogoSvg from "../../images/icons/angular.svg";
 export default makeScene2D(function* (view) {
   const backgroundImg = _setBackground(view);
   const circleRefs = circleWithContent(view, { x: 511, y: -236 });
-  const scale = createSignal(1);
-
-  yield* all();
+  const title = addText(view, "Angular Signals", {
+    x: -400,
+    y: 0,
+    fontSize: 100,
+  });
+  //const scale = createSignal(1);
+  //yield* all(circleRefs.content[0].fill("#e6a700", 1).to("#e13238", 1));
   //circleRefs.content[0].fill("#e6a700", 1).to("#e13238", 1),
   //circleRefs.content[0].scale(2, 1)
   yield* waitFor(1);
@@ -86,6 +91,18 @@ function angularLogoGenerate(view: View2D): Path[] {
 
   const elementsRef = elements.map((x) => x.ref());
   return elementsRef;
+}
+
+function addText(
+  view: View2D,
+  text: string,
+  props: { x: any; y?: number; fontSize: any }
+) {
+  const title = createRef<Txt>();
+  view.add(<Txt ref={title} x={props.x} fontSize={props.fontSize} />);
+
+  title().text(text);
+  return title;
 }
 
 function circleWithContent(
