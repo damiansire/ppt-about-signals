@@ -13,5 +13,5 @@ Code.defaultHighlighter = new LezerHighlighter(
   })
 );
 export default makeProject({
-  scenes: [example, slider2],
+  scenes: [example /*, slider2*/],
 });
