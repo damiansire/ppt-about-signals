@@ -22,6 +22,9 @@ import sliderTemplate1 from "../../images/template/slider1.png";
 import angularLogo from "../../images/icons/angular.png";
 import angularLogoSvg from "../../images/icons/angular.svg";
 import meExpertImg from "../../images/me-expert.png";
+import instagramIcon from "../../images/icons/instagram.svg";
+import twitterIcon from "../../images/icons/twitter.svg";
+import linkedinIcon from "../../images/icons/linkedin.svg";
 
 export default makeScene2D(function* (view) {
   const backgroundImg = _setBackground(view);
@@ -54,6 +57,23 @@ export default makeScene2D(function* (view) {
   });
 
   view.add(myText);
+
+  const socialNetworks = [
+    { icon: linkedinIcon },
+    { icon: twitterIcon },
+    { icon: instagramIcon },
+  ];
+
+  socialNetworks.forEach((element, index) => {
+    view.add(<Img src={element.icon} x={0 + index * 96} y={350}></Img>);
+  });
+
+  addText(view, "Damian Sire", {
+    x: socialNetworks.length * 96 + 70,
+    y: 355,
+    fontSize: 40,
+  });
+
   //const scale = createSignal(1);
   //yield* all(circleRefs.content[0].fill("#e6a700", 1).to("#e13238", 1));
   //circleRefs.content[0].fill("#e6a700", 1).to("#e13238", 1),
