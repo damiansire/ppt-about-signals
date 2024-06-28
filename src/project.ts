@@ -1,7 +1,7 @@
 import { makeProject } from "@motion-canvas/core";
 
-import example from "./scenes/introduction?scene";
-import slider2 from "./scenes/slider2?scene";
+import first from "./scenes/introduction?scene";
+import aboutMe from "./scenes/about-me?scene";
 
 import { Code, LezerHighlighter } from "@motion-canvas/2d";
 import { parser } from "@lezer/javascript";
@@ -13,5 +13,5 @@ Code.defaultHighlighter = new LezerHighlighter(
   })
 );
 export default makeProject({
-  scenes: [example /*, slider2*/],
+  scenes: [/*first,*/ aboutMe],
 });
