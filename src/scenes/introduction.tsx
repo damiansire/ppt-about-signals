@@ -1,30 +1,21 @@
 import {
-  makeScene2D,
-  Img,
-  View2D,
   Circle,
-  CubicBezier,
-  Path,
   Gradient,
+  Img,
+  Path,
   Txt,
+  View2D,
+  makeScene2D,
 } from "@motion-canvas/2d";
-import {
-  Color,
-  Reference,
-  all,
-  beginSlide,
-  createRef,
-  createSignal,
-  waitFor,
-} from "@motion-canvas/core";
+import { Color, beginSlide, createRef, waitFor } from "@motion-canvas/core";
 import { SetBackground } from "../libs/layout";
-import sliderTemplate1 from "../../images/template/slider1.png";
-import angularLogo from "../../images/icons/angular.png";
-import angularLogoSvg from "../../images/icons/angular.svg";
-import meExpertImg from "../../images/me-expert.png";
-import instagramIcon from "../../images/icons/instagram.svg";
-import twitterIcon from "../../images/icons/twitter.svg";
-import linkedinIcon from "../../images/icons/linkedin.svg";
+import {
+  instagramIcon,
+  linkedinIcon,
+  meExpertImg,
+  sliderTemplate1,
+  twitterIcon,
+} from "../assets";
 
 export default makeScene2D(function* (view) {
   const backgroundImg = _setBackground(view);
