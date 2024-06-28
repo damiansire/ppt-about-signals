@@ -17,10 +17,11 @@ import {
   createSignal,
   waitFor,
 } from "@motion-canvas/core";
+import { SetBackground } from "../libs/layout";
 import sliderTemplate1 from "../../images/template/slider1.png";
 import angularLogo from "../../images/icons/angular.png";
-import { SetBackground } from "../libs/layout";
 import angularLogoSvg from "../../images/icons/angular.svg";
+import meExpertImg from "../../images/me-expert.png";
 
 export default makeScene2D(function* (view) {
   const backgroundImg = _setBackground(view);
@@ -30,6 +31,29 @@ export default makeScene2D(function* (view) {
     y: 0,
     fontSize: 100,
   });
+  const subTitle = addText(view, "A deep dive into the new features", {
+    x: -450,
+    y: 150,
+    fontSize: 40,
+  });
+
+  const meExpert = createRef<Img>();
+  view.add(
+    <Img src={meExpertImg} ref={meExpert} scale={0.05} x={-665} y={300} />
+  );
+
+  const myText = new Txt({
+    text: "Damian Sire\nGoogle Developer Expert\n@damiansire",
+    fontFamily: "Arial",
+    fontSize: 24,
+    fill: "#333333",
+    x: -420,
+    y: 290,
+
+    lineHeight: 24 + 10,
+  });
+
+  view.add(myText);
   //const scale = createSignal(1);
   //yield* all(circleRefs.content[0].fill("#e6a700", 1).to("#e13238", 1));
   //circleRefs.content[0].fill("#e6a700", 1).to("#e13238", 1),
@@ -99,7 +123,15 @@ function addText(
   props: { x: any; y?: number; fontSize: any }
 ) {
   const title = createRef<Txt>();
-  view.add(<Txt ref={title} x={props.x} fontSize={props.fontSize} />);
+  view.add(
+    <Txt
+      ref={title}
+      x={props.x}
+      fontSize={props.fontSize}
+      y={props.y}
+      fontFamily={""}
+    />
+  );
 
   title().text(text);
   return title;
